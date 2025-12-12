@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML5 Obby — Multilevel Checkpoints</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <canvas id="game" aria-label="Obby game canvas" role="img"></canvas>
+
+      <div class="overlay" id="overlay">
+        <section class="screen" id="screen-menu" aria-label="Main menu">
+          <div class="panel">
+            <h1>HTML5 Obby</h1>
+            <p class="subtitle">Beat each level. Use checkpoints. Set best times.</p>
+            <div class="buttons">
+              <button id="btn-start" class="primary">Start</button>
+              <button id="btn-levels">Level Select</button>
+              <button id="btn-reset">Reset Progress</button>
+            </div>
+            <div class="hint">
+              <div><b>Move:</b> A/D or ◀/▶</div>
+              <div><b>Jump:</b> Space / W / ▲</div>
+              <div><b>Respawn:</b> R</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-levels" aria-label="Level selection" hidden>
+          <div class="panel">
+            <h2>Level Select</h2>
+            <p class="subtitle">Unlocked levels are clickable. Best times are saved locally.</p>
+            <div id="level-grid" class="level-grid"></div>
+            <div class="buttons">
+              <button id="btn-levels-back">Back</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="hud" id="hud" hidden>
+          <div class="hud-left">
+            <div class="hud-line"><span class="label">Level</span> <span id="hud-level">—</span></div>
+            <div class="hud-line"><span class="label">Time</span> <span id="hud-time">0.0s</span></div>
+          </div>
+          <div class="hud-right">
+            <div class="hud-line"><span class="label">Lives</span> <span id="hud-lives">—</span></div>
+            <div class="hud-line"><span class="label">Checkpoint</span> <span id="hud-checkpoint">—</span></div>
+          </div>
+          <div class="hud-center">
+            <div id="toast" class="toast" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-complete" aria-label="Level complete" hidden>
+          <div class="panel">
+            <h2>Level Complete</h2>
+            <div class="stat">
+              <div><span class="label">Time</span> <span id="complete-time">—</span></div>
+              <div><span class="label">Best</span> <span id="complete-best">—</span></div>
+              <div id="complete-note" class="note" hidden></div>
+            </div>
+            <div class="buttons">
+              <button id="btn-next" class="primary">Next Level</button>
+              <button id="btn-retry">Retry</button>
+              <button id="btn-complete-levels">Level Select</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-gameover" aria-label="Game over" hidden>
+          <div class="panel">
+            <h2>Game Over</h2>
+            <p class="subtitle">Out of lives. You can retry the level.</p>
+            <div class="buttons">
+              <button id="btn-go-retry" class="primary">Retry</button>
+              <button id="btn-go-levels">Level Select</button>
+              <button id="btn-go-menu">Main Menu</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="touch" id="touch" hidden>
+          <button class="touch-btn" data-action="left" aria-label="Move left">◀</button>
+          <button class="touch-btn" data-action="right" aria-label="Move right">▶</button>
+          <button class="touch-btn jump" data-action="jump" aria-label="Jump">⤒</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>

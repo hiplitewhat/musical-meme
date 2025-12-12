@@ -892,6 +892,149 @@
       );
     }
 
+    // Level 4 (Precision Challenge)
+    {
+      const bounds = { x: 0, y: 0, w: 2200, h: 1200 };
+      const groundY = 1050;
+
+      const platforms = [
+        new Platform({ x: 0, y: groundY, w: 600, h: 200 }),
+        new Platform({ x: 800, y: groundY, w: 540, h: 200 }),
+        new Platform({ x: 1500, y: groundY, w: 700, h: 200 }),
+
+        new Platform({ x: 280, y: 920, w: 60, h: 14 }),
+        new Platform({ x: 360, y: 880, w: 60, h: 14 }),
+        new Platform({ x: 440, y: 840, w: 50, h: 14 }),
+        new Platform({ x: 510, y: 800, w: 50, h: 14 }),
+
+        new Platform({ x: 1080, y: 900, w: 65, h: 14 }),
+        new Platform({ x: 1160, y: 855, w: 70, h: 14 }),
+        new Platform({ x: 1250, y: 810, w: 65, h: 14 }),
+        new Platform({ x: 1340, y: 765, w: 60, h: 14 }),
+
+        new Platform({ x: 1700, y: 880, w: 80, h: 14 }),
+        new Platform({ x: 1820, y: 820, w: 75, h: 14 }),
+      ];
+
+      const moving = [
+        new MovingPlatform({ x: 600, y: 750, w: 100, h: 16, toX: 700, toY: 650, speed: 180 }),
+        new MovingPlatform({ x: 1250, y: 600, w: 100, h: 16, toX: 1250, toY: 500, speed: 140 }),
+        new MovingPlatform({ x: 1950, y: 700, w: 90, h: 16, toX: 1950, toY: 550, speed: 160 }),
+      ];
+
+      const spikes = [
+        new Spike({ x: 600, y: groundY - 26, w: 200, h: 26 }),
+        new Spike({ x: 1340, y: groundY - 26, w: 160, h: 26 }),
+      ];
+
+      const falling = [
+        new FallingBlock({ x: 660, y: 820, w: 85, h: 16, delay: 0.15 }),
+        new FallingBlock({ x: 1620, y: 700, w: 80, h: 16, delay: 0.17 }),
+        new FallingBlock({ x: 1720, y: 660, w: 80, h: 16, delay: 0.19 }),
+      ];
+
+      const rotators = [
+        new Rotator({ x: 780, y: 900, length: 200, thickness: 14, speed: 2.4 }),
+        new Rotator({ x: 1450, y: 850, length: 240, thickness: 15, speed: -2.8, angle: 0.5 }),
+      ];
+
+      const checkpoints = [
+        new Checkpoint({ id: 1, x: 540, y: groundY, spawnX: 500, spawnY: groundY - 60 }),
+        new Checkpoint({ id: 2, x: 1290, y: 760, spawnX: 1250, spawnY: 700 }),
+      ];
+
+      const goal = new Goal({ x: 2050, y: groundY - 180, w: 100, h: 180 });
+
+      levels.push(
+        new Level({
+          id: 4,
+          name: 'Level 4 — Precision',
+          bounds,
+          start: { x: 80, y: groundY - 70 },
+          checkpoints,
+          goal,
+          platforms: [...platforms, ...moving],
+          spikes,
+          falling,
+          rotators,
+        })
+      );
+    }
+
+    // Level 5 (Momentum Challenge)
+    {
+      const bounds = { x: 0, y: 0, w: 3400, h: 1400 };
+      const groundY = 1200;
+
+      const platforms = [
+        new Platform({ x: 0, y: groundY, w: 900, h: 200 }),
+        new Platform({ x: 1200, y: groundY, w: 800, h: 200 }),
+        new Platform({ x: 2300, y: groundY, w: 1100, h: 200 }),
+
+        new Platform({ x: 500, y: 1060, w: 75, h: 14 }),
+        new Platform({ x: 620, y: 1010, w: 75, h: 14 }),
+        new Platform({ x: 740, y: 960, w: 65, h: 14 }),
+        new Platform({ x: 850, y: 910, w: 65, h: 14 }),
+
+        new Platform({ x: 1400, y: 1050, w: 90, h: 14 }),
+        new Platform({ x: 1540, y: 980, w: 85, h: 14 }),
+        new Platform({ x: 1680, y: 910, w: 80, h: 14 }),
+
+        new Platform({ x: 2600, y: 1050, w: 100, h: 14 }),
+        new Platform({ x: 2760, y: 980, w: 95, h: 14 }),
+        new Platform({ x: 2920, y: 910, w: 90, h: 14 }),
+      ];
+
+      const moving = [
+        new MovingPlatform({ x: 850, y: 800, w: 120, h: 16, toX: 950, toY: 750, speed: 200 }),
+        new MovingPlatform({ x: 1750, y: 750, w: 110, h: 16, toX: 1750, toY: 600, speed: 180 }),
+        new MovingPlatform({ x: 2250, y: 850, w: 130, h: 16, toX: 2400, toY: 850, speed: 190 }),
+        new MovingPlatform({ x: 3000, y: 750, w: 100, h: 16, toX: 3100, toY: 700, speed: 170 }),
+      ];
+
+      const spikes = [
+        new Spike({ x: 900, y: groundY - 26, w: 300, h: 26 }),
+        new Spike({ x: 2000, y: groundY - 26, w: 300, h: 26 }),
+      ];
+
+      const falling = [
+        new FallingBlock({ x: 980, y: 900, w: 80, h: 16, delay: 0.14 }),
+        new FallingBlock({ x: 1080, y: 860, w: 80, h: 16, delay: 0.16 }),
+        new FallingBlock({ x: 1850, y: 750, w: 85, h: 16, delay: 0.15 }),
+        new FallingBlock({ x: 1950, y: 710, w: 85, h: 16, delay: 0.17 }),
+        new FallingBlock({ x: 2850, y: 800, w: 80, h: 16, delay: 0.18 }),
+      ];
+
+      const rotators = [
+        new Rotator({ x: 1050, y: 1050, length: 260, thickness: 16, speed: 2.6 }),
+        new Rotator({ x: 1850, y: 980, length: 280, thickness: 16, speed: -2.9, angle: 1.2 }),
+        new Rotator({ x: 2950, y: 1050, length: 240, thickness: 15, speed: 2.4, angle: 0.7 }),
+      ];
+
+      const checkpoints = [
+        new Checkpoint({ id: 1, x: 820, y: groundY, spawnX: 780, spawnY: groundY - 60 }),
+        new Checkpoint({ id: 2, x: 1700, y: 910, spawnX: 1660, spawnY: 850 }),
+        new Checkpoint({ id: 3, x: 2850, y: groundY, spawnX: 2810, spawnY: groundY - 60 }),
+      ];
+
+      const goal = new Goal({ x: 3220, y: groundY - 200, w: 110, h: 200 });
+
+      levels.push(
+        new Level({
+          id: 5,
+          name: 'Level 5 — Momentum Master',
+          bounds,
+          start: { x: 80, y: groundY - 70 },
+          checkpoints,
+          goal,
+          platforms: [...platforms, ...moving],
+          spikes,
+          falling,
+          rotators,
+        })
+      );
+    }
+
     return levels;
   };
 

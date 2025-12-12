@@ -1,52 +1,118 @@
 # HTML5 Obby Game
 
-A pure HTML/CSS/JavaScript canvas-based obstacle course (obby) game with 5 progressively challenging levels, checkpoint system, multiple hazard types, and best-time tracking.
+A complex obstacle course (obby) game built with pure HTML5, Canvas, and JavaScript.
 
-## How to play
+## Features
 
-Open `index.html` in a modern browser.
+### Core Gameplay
+- Player-controlled character with smooth physics (move left/right, jump)
+- 5 progressively harder levels with unique challenges
+- Checkpoint system for saving progress within levels
+- Lives system (5 lives per level)
+- Win detection and level progression
 
-### Controls
+### Obstacles & Mechanics
+- **Moving Platforms**: Platforms that move between two points
+- **Spike Hazards**: Dangerous spikes that kill on contact
+- **Falling Blocks**: Platforms that collapse when stepped on
+- **Rotating Obstacles**: Spinning hazards to avoid
+- **Narrow Jumps**: Precision platforming challenges
+- **Physics System**: Realistic gravity, collision detection, coyote time, jump buffering
 
-- **Move**: A/D or Arrow Left/Right
-- **Jump**: Space / W / Arrow Up
-- **Respawn**: R (costs one life)
-- **Touch**: Mobile controls available on supported devices
+### Progression & Scoring
+- Level unlock system (complete levels to unlock the next)
+- Time tracking with best times saved to localStorage
+- Leaderboard showing best times for each level
+- 5 lives per level with checkpoint respawning
 
-### Features
-
-**Gameplay**
-- 5 levels with progressively harder obstacle layouts and different challenges
-- Checkpoint system: respawn at last reached checkpoint instead of restarting
-- Lives system: 5 lives per level with respawn mechanic
-- Win/completion detection with transition to next level
-- Fall detection: respawn at checkpoint if player falls off
-
-**Obstacles & Mechanics**
-- Multiple obstacle types: moving platforms, spike hazards, falling blocks, rotating obstacles
-- Physics system: gravity, collision detection, coyote time, jump buffering
-- Smooth player movement with acceleration and friction
-- Platform momentum transfer: player carries moving platform velocity
-
-**Progression & Scoring**
-- Level progression system: complete level to unlock next
-- Best-time tracking per level (localStorage)
-- Difficulty scaling: later levels have more complex obstacle combinations
-- Level selection screen to play any unlocked level
-
-**UI & Polish**
-- Main menu with start and level select
-- Level selection screen showing best times
-- In-game HUD with current level, time, lives, checkpoint count
-- Game over and level complete screens
+### UI & Polish
+- Main menu with Start, Level Select, and Reset Progress
+- Level selection screen showing unlocked levels and best times
+- In-game HUD displaying level name, time, lives, and checkpoint info
+- Level complete screen with time comparison
+- Game over screen
 - Toast notifications for checkpoints and events
-- Camera smooth following with shake effects
-- Visual feedback: player spawn glow, rotating obstacles, falling block animations
-- Responsive controls with touch support for mobile
+- Visual feedback with camera shake and spawn glow effects
+- Touch controls for mobile devices
 
-**Technical**
-- Pure HTML5, CSS, and JavaScript (no external libraries)
-- Canvas-based 2D rendering with gradients and visual effects
-- Smooth 60 FPS gameplay
-- localStorage persistence for progress and best times
-- Clean class-based architecture for easy level design and expansion
+### Levels
+1. **Level 1 — Warmup Run**: Introduction with basic jumps (2600×900)
+2. **Level 2 — Moving Trouble**: More complexity with moving platforms (3100×1000)
+3. **Level 3 — Tower Climb**: Vertical challenge with 3 checkpoints (1600×2400)
+4. **Level 4 — Precision**: Narrow platforms requiring precise jumps (2200×1200)
+5. **Level 5 — Momentum Master**: Largest level with all obstacle types (3400×1400)
+
+## Files
+
+### Standalone Version
+- **obby-standalone.html**: Complete game in a single HTML file with all CSS and JavaScript embedded. Can be opened directly in any modern browser with no dependencies.
+
+### Development Version
+- **index.html**: Main HTML structure
+- **style.css**: All styling and UI design
+- **game.js**: Complete game logic and physics engine
+
+## Controls
+
+- **Move Left**: A or ◀
+- **Move Right**: D or ▶
+- **Jump**: Space / W / ▲
+- **Respawn**: R (costs 1 life)
+- **Mobile**: Touch controls appear automatically on touch devices
+
+## How to Play
+
+### Standalone Version
+Simply open `obby-standalone.html` in any modern web browser (Chrome, Firefox, Safari, Edge).
+
+### Development Version
+Open `index.html` in a web browser, or use a local server:
+```bash
+# Using Python 3
+python3 -m http.server 8000
+
+# Using Node.js
+npx serve
+```
+
+Then navigate to `http://localhost:8000` in your browser.
+
+## Technical Details
+
+- Pure HTML5 Canvas rendering
+- No external libraries or dependencies
+- LocalStorage for save data persistence
+- Responsive canvas scaling
+- Delta-time based game loop for consistent physics
+- Object-oriented architecture with clean class separation
+- Touch input support for mobile devices
+- Smooth camera following with lerp interpolation
+
+## Game Classes
+
+- **Input**: Keyboard and touch input handling
+- **Camera**: Smooth following camera with shake effects
+- **Platform**: Static platforms
+- **MovingPlatform**: Moving platforms on defined paths
+- **FallingBlock**: Platforms that fall when touched
+- **Spike**: Hazard obstacles
+- **Rotator**: Rotating obstacles with capsule collision
+- **Checkpoint**: Respawn points within levels
+- **Goal**: Level finish points
+- **Player**: Player character with physics
+- **Level**: Container for level data and objects
+- **Game**: Main game manager and state machine
+
+## Browser Compatibility
+
+Works in all modern browsers that support:
+- HTML5 Canvas
+- ES6 JavaScript
+- LocalStorage
+- RequestAnimationFrame
+
+Tested on: Chrome, Firefox, Safari, Edge
+
+## License
+
+This is a demo game project for educational purposes.
